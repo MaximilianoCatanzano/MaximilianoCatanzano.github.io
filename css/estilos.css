@@ -180,7 +180,86 @@
 .mapa {
   padding: 20px; }
 
+  
+
 /*Media queries*/
+
+@media only screen and (max-width:768px){
+  .main__texto{
+      font-size: 70px;
+      padding: 11px;
+  }
+  .main__imagen{
+      padding: 2px;
+      width: 765px;
+      height: 338px;
+      transition: 1s;
+  }
+
+  .main__imagen:hover{
+      width: 763px;
+      height: 336px;
+  }
+
+  .footer{
+      height: 60px;
+      justify-content: flex-start;
+      padding: 40px;
+  }
+
+  .footer__texto{
+      font-size: 15px;
+  }
+
+  /*productos*/
+
+  .main__article{
+      grid-template-columns: repeat(2,1fr);
+  }
+
+  .main__imagenes{
+      width: 330px;
+      padding: 5px;
+      transition: 1s;
+  }
+
+  .main__imagenes:hover{
+      width: 325px;
+  }
+
+  /*guía de talles*/
+
+  .talles__texto{
+      font-size: 95%;
+  }
+
+  .talles_imagenes{
+      width: 760px; height: 592px;
+  }
+
+  .talles_imagenes:hover{
+      width: 762px; height: 594px;
+  }
+
+  /*nosotros*/
+
+  .nosotros__audiovisual__tamaño{
+      width: 580px;
+      height: 435px;
+  }
+
+  /*contacto*/
+
+  .article__contacto{
+      flex-direction: column;
+  }
+
+  .mapa{
+      width: 600px;
+  }
+
+}
+
 @media only screen and (max-width: 576px) {
   .main__texto {
     font-size: 60px;
@@ -225,4 +304,5 @@
   .article__contacto {
     flex-direction: column; }
   .mapa {
-    width: 550px; } }
+    width: 550px; } 
+  }
