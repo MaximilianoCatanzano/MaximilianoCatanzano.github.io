@@ -1,6 +1,14 @@
-$colorPrincipal: rgba(128, 128, 128, 1);
 $colorMain: rgba(0, 0, 0, 0.768);
-$colorTexto: rgb(218, 165, 32);
+
+$estilos:(
+    colorPrincipal: #808080,
+    colorTexto: #D3C127,
+);
+
+@mixin sizes($width, $height){
+    height: $height;
+    width: $width;
+}
 
 /*bootstrap*/
 
@@ -9,14 +17,15 @@ $colorTexto: rgb(218, 165, 32);
 }
 
 .navbar{
-    background: $colorPrincipal;
+    background: map-get($estilos, colorPrincipal);
 }
+
 .nav-link{
     font-size: 20px;
 }
 
 .navbar-brand{
-    font-size: 20px;
+    @extend .nav-link;
 }
 
 .navbar-expand-lg .navbar-collapse{
@@ -41,39 +50,38 @@ $colorTexto: rgb(218, 165, 32);
     justify-content: center;
     font-family: sans-serif;
     font-size: 100px;
-    color: $colorTexto;
+    color: map-get($estilos, colorTexto);
 }
 
 .main__imagen{
     max-width: 100%;
     max-height: 100%;
-    width: 1880px;
-    height: 831px;
+    @include sizes(1880px, 831px);
     padding: 10px;
     transition: 1s;
 }
 
 .main__imagen:hover{
-    width: 1900px; height: 840px;
+    @include sizes(1900px, 840px);
 }
 
 .footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
-    background-color: $colorPrincipal;
+    height: 119px;
+    background-color: map-get($estilos, colorPrincipal);
 }
 
 .footer__texto{
-    color: $colorTexto;
+    color: map-get($estilos, colorTexto);
     font-family: sans-serif;
 }
 
 .footer__imagen{
     display: flex;
     flex-direction: row;
-    width: 45px;
+    @include sizes(45px, 45px);
     margin-right: 40px;
 }
 
@@ -92,13 +100,13 @@ $colorTexto: rgb(218, 165, 32);
 }
 
 .main__imagenes{
-    width: 400px;
+    @include sizes(400px, 600px);
     padding: 25px;
     transition: 1s;
 }
 
 .main__imagenes:hover{
-    width: 390px;
+    @include sizes(390px, 585px);
 }
 
 .productos__texto{
@@ -106,7 +114,7 @@ $colorTexto: rgb(218, 165, 32);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: $colorTexto;
+    color: map-get($estilos, colorTexto);
     font-family: sans-serif;
     font-size: 20px;
 }
@@ -115,10 +123,9 @@ $colorTexto: rgb(218, 165, 32);
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    height: 30px;
+    @include sizes(100px, 30px);
     background-image: linear-gradient( 89.4deg,  rgba(74,77,103,1) -4.3%, rgba(119,125,165,1) 102.1% );
-    color: $colorTexto;
+    color: map-get($estilos, colorTexto);
     border: 0;
     transition: all 1s;
 }
@@ -130,21 +137,20 @@ $colorTexto: rgb(218, 165, 32);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: $colorTexto;
+    color: map-get($estilos, colorTexto);
     font-family: sans-serif;
     font-size: 20px;
 }
 
 .talles_imagenes{
-    width: 1165px;
-    height: 909px;
+    @include sizes(1165px, 909px);
     display: grid;
     padding: 20px;
     transition: 1s;
 }
 
 .talles_imagenes:hover{
-    width: 1170px; height: 914px;
+    @include sizes(1170px, 914px);
 }
 
 /*nosotros*/
@@ -154,24 +160,22 @@ $colorTexto: rgb(218, 165, 32);
     background-color: $colorMain;
 }
 
-.nosotros__texto{
+.nosotros__audiovisual{
     display: grid;
-    align-items: center;
-    color: $colorTexto;
+    justify-content: center;
+}
+
+.nosotros__texto{
+    @extend .nosotros__audiovisual;
+    color: map-get($estilos, colorTexto);
     font-family: sans-serif;
     font-size: 20px;
     padding: 30px;
     text-align: justify;
 }
 
-.nosotros__audiovisual{
-    display: grid;
-    justify-content: center;
-}
-
 .nosotros__audiovisual__tamaño{
-    width: 1080px;
-    height: 700px;
+    @include sizes(1080px, 700px);
     padding: 10px;
 }
 
@@ -183,7 +187,7 @@ $colorTexto: rgb(218, 165, 32);
     justify-content: center;
     font-family: sans-serif;
     font-size: 20px;
-    color: $colorTexto;
+    color: map-get($estilos, colorTexto);
 }
 
 .article__contacto{
@@ -199,19 +203,16 @@ $colorTexto: rgb(218, 165, 32);
 }
 
 .article__mensaje{
-    display: flex;
-    justify-content: center;
+    @extend .article__label;
     font-family: sans-serif;
-    color: $colorTexto;
+    color: map-get($estilos, colorTexto);
 }
 
 .article__button{
-    display: flex;
-    justify-content: center;
+    @extend .article__label;
     align-items: center;
-    color: $colorTexto;
-    width: 318px;
-    height: 30px;
+    color: map-get($estilos, colorTexto);
+    @include sizes(318px, 30px);
     background-color: gray;
     border: 0;
 }
@@ -229,24 +230,29 @@ $colorTexto: rgb(218, 165, 32);
     }
     .main__imagen{
         padding: 2px;
-        width: 765px;
-        height: 338px;
+        @include sizes(765px, 338px);
         transition: 1s;
     }
 
     .main__imagen:hover{
-        width: 763px;
-        height: 336px;
+        @include sizes(763px, 336px);
     }
 
     .footer{
-        height: 60px;
+        height: 20px;
         justify-content: flex-start;
-        padding: 40px;
+        padding: 60px;
+    }
+
+    .footer__imagen{
+        display: flex;
+        flex-direction: row;
+        @include sizes(55px, 55px);
+        margin-right: 40px;
     }
 
     .footer__texto{
-        font-size: 15px;
+        font-size: 20px;
     }
 
     /*productos*/
@@ -256,13 +262,13 @@ $colorTexto: rgb(218, 165, 32);
     }
 
     .main__imagenes{
-        width: 330px;
+        @include sizes(330px, 495px);
         padding: 5px;
         transition: 1s;
     }
 
     .main__imagenes:hover{
-        width: 325px;
+        @include sizes(325px, 487px);
     }
 
     /*guía de talles*/
@@ -272,18 +278,17 @@ $colorTexto: rgb(218, 165, 32);
     }
 
     .talles_imagenes{
-        width: 760px; height: 592px;
+        @include sizes(760px, 592px);
     }
 
     .talles_imagenes:hover{
-        width: 762px; height: 594px;
+        @include sizes(762px, 594px);
     }
 
     /*nosotros*/
 
     .nosotros__audiovisual__tamaño{
-        width: 580px;
-        height: 435px;
+        @include sizes(580px, 435px);
     }
 
     /*contacto*/
@@ -293,37 +298,44 @@ $colorTexto: rgb(218, 165, 32);
     }
 
     .mapa{
-        width: 600px;
+        @include sizes(580px, 400px);
     }
 
 }
 
 @media only screen and (max-width:576px){
     .main__texto{
-        font-size: 60px;
-        padding: 11px;
+        font-size: 70px;
+        padding: 15px;
     }
+    
     .main__imagen{
+        @include sizes(576px, 254px);
         padding: 2px;
-        width: 576px;
-        height: 254px;
         transition: 1s;
     }
 
     .main__imagen:hover{
-        width: 574px;
-        height: 252px;
+        @include sizes(774px, 252px);
     }
 
     .footer{
-        height: 60px;
+        height: 20px;
         justify-content: flex-start;
         padding: 40px;
+    }
+
+    .footer__imagen{
+        display: flex;
+        flex-direction: row;
+        @include sizes(45px, 45px);
+        margin-right: 40px;
     }
 
     .footer__texto{
         font-size: 15px;
     }
+
 
     /*productos*/
 
@@ -332,13 +344,13 @@ $colorTexto: rgb(218, 165, 32);
     }
 
     .main__imagenes{
-        width: 250px;
+        @include sizes(250px, 375px);
         padding: 5px;
         transition: 1s;
     }
 
     .main__imagenes:hover{
-        width: 245px;
+        @include sizes(245px, 367px);
     }
 
     /*guía de talles*/
@@ -348,18 +360,17 @@ $colorTexto: rgb(218, 165, 32);
     }
 
     .talles_imagenes{
-        width: 600px; height: 468px;
+        @include sizes(600px, 468px);
     }
 
     .talles_imagenes:hover{
-        width: 605px; height: 472px;
+        @include sizes(605px, 472px);
     }
 
     /*nosotros*/
 
     .nosotros__audiovisual__tamaño{
-        width: 480px;
-        height: 300px;
+        @include sizes(480px, 300px);
     }
 
     /*contacto*/
@@ -369,7 +380,7 @@ $colorTexto: rgb(218, 165, 32);
     }
 
     .mapa{
-        width: 550px;
+        @include sizes(580px, 435px);
     }
 
 }
