@@ -123,6 +123,7 @@ $estilos:(
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
     @include sizes(100px, 30px);
     background-image: linear-gradient( 89.4deg,  rgba(74,77,103,1) -4.3%, rgba(119,125,165,1) 102.1% );
     color: map-get($estilos, colorTexto);
@@ -220,6 +221,8 @@ $estilos:(
 .mapa{
     padding: 20px;
 }
+
+
 
 /*Media queries*/
 
